@@ -16,7 +16,7 @@ onscreenclick(clicked)
 while flag:
     x, y = pos()
 
-    directions = range(-45,46)
+    directions = range(0,360)
 
     randdirection = random.choice(directions)
     left(randdirection)
