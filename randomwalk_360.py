@@ -1,18 +1,21 @@
 from turtle import *
-
 import random
 
+# 変数定義
 log = {0: [0]}
 flag = True
 
+# Turtleの設定
 hideturtle()
 speed(0)
 
+# 画面クリック時の挙動の設定
 def clicked(x,y):
     global flag
     flag = False
 onscreenclick(clicked)
 
+# 酔歩
 while flag:
     x, y = pos()
 
@@ -28,6 +31,6 @@ while flag:
     if abs(pos()) < 1:
         break
 
+# 終了
 showturtle()
-
 done()

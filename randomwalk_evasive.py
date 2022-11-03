@@ -1,16 +1,15 @@
 from turtle import *
 import draw
 import random
-import sys
 
 # 三つ以上の亀を相互回避酔歩させる
 
-# 定数定義（変更可）
-num_of_turtles = 4 # 1以上の整数を入力
-init_positions = [(50, 50), (-50, 50), (-50, -50), (50, -50)] # 2つの実数からなるタプルnum_of_turtles個の配列を入力。相互回避が成立するためには、任意の2つのタプルの第n要素について、その差がstepの整数倍である必要があります（n=0,1）。
-step = 10 # 0より大きい実数を入力
+# 設定
+num_of_turtles = 4 # 亀の頭数。1以上の整数を入力
+init_positions = [(50, 50), (-50, 50), (-50, -50), (50, -50)] # 亀の初期位置。2つの実数からなるタプルnum_of_turtles個の配列を入力。相互回避が成立するためには、任意の2つのタプルの第n要素について、その差がstepの正整数倍である必要がある（n=0,1）。
+step = 10 # 亀の歩幅。0より大きい実数を入力
 
-# 定数定義（変更不可）
+# 変数定義
 turtles = []
 is_alive = []
 
@@ -101,6 +100,6 @@ while any(is_alive):
             elif randdirection == 270:
                 log[x].add(y-step)
 
+# 終了
 print(log)
-
 done()

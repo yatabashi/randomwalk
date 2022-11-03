@@ -2,7 +2,10 @@ from turtle import *
 import random
 import draw
 
-step = 10
+# 単独の自己回避酔歩
+
+# 設定
+step = 10 # 亀の歩幅。0より大きい実数を入力
 
 # 準備
 t = Turtle()
@@ -56,6 +59,6 @@ while True:
     # 移動
     t.forward(step)
 
+# 終了
 print(log)
-
 done()

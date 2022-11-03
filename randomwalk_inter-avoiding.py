@@ -2,9 +2,12 @@ from turtle import *
 import random
 import draw
 
+# 二つの亀を相互回避酔歩させる
+# forによって簡潔化することは可能だが、_evasiveとの差別化のためにあえて現型を保持
+
 # 設定
-step = 10 # 亀の歩幅を指定。
-distance = 60 # 二頭の亀の初期位置の距離を指定。step以上のstepの倍数で入力することを推奨。
+step = 10 # 亀の歩幅。0より大きい実数を入力
+distance = 60 # 二頭の亀の初期位置間の距離。0より大きい実数を入力。相互回避が成立するためには、stepの正整数倍である必要がある。
 
 # 準備
 t1 = Turtle()
@@ -14,9 +17,12 @@ t2_is_alive = True
 t1.speed(0)
 t2.speed(0)
 
-t1.penup(); t2.penup()
-t1.setpos(-distance/2, 0); t2.setpos(distance/2, 0)
-t1.pendown(); t2.pendown()
+t1.penup()
+t2.penup()
+t1.setpos(-distance/2, 0)
+t2.setpos(distance/2, 0)
+t1.pendown()
+t2.pendown()
 
 # log作成
 log = {}
@@ -26,7 +32,7 @@ for t in [t1, t2]:
     x, y = round(x), round(y)
     log[x] = {y}
 
-# t1の始点描画
+# 始点描画
 draw.origin(t1, 6)
 draw.origin(t2, 6)
 
@@ -138,6 +144,6 @@ while t1_is_alive or t2_is_alive:
         elif randdirection == 270:
             log[x2].add(y2-step)
 
+# 終了
 print(log)
-
 done()
