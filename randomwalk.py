@@ -15,7 +15,6 @@ onscreenclick(clicked)
 
 while flag:
     x, y = pos()
-    x, y = round(x), round(y)
 
     directions = range(-45,46)
 

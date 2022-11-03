@@ -1,19 +1,22 @@
 from turtle import *
 import random
+import draw
 
 # 設定
-step = 10 # 
-distance = 60 # step以上のstepの倍数で入力。
+step = 10 # 亀の歩幅を指定。
+distance = 60 # 二頭の亀の初期位置の距離を指定。step以上のstepの倍数で入力することを推奨。
 
 # 準備
-t1 = Turtle(); t2 = Turtle()
-flag_t1 = True; flag_t2 = True
+t1 = Turtle()
+t2 = Turtle()
+t1_is_alive = True
+t2_is_alive = True
+t1.speed(0)
+t2.speed(0)
 
 t1.penup(); t2.penup()
 t1.setpos(-distance/2, 0); t2.setpos(distance/2, 0)
 t1.pendown(); t2.pendown()
-
-t1.speed(0); t2.speed(0)
 
 # log作成
 log = {}
@@ -24,40 +27,12 @@ for t in [t1, t2]:
     log[x] = {y}
 
 # t1の始点描画
-t1.forward(3)
-t1.left(90)
-
-t1.begin_fill()
-t1.forward(3)
-for _ in range(3):
-    t1.left(90)
-    t1.forward(6)
-t1.left(90)
-t1.forward(3)
-t1.end_fill()
-
-t1.left(90)
-t1.forward(3)
-
-# t2の始点描画
-t2.forward(3)
-t2.left(90)
-
-t2.begin_fill()
-t2.forward(3)
-for _ in range(3):
-    t2.left(90)
-    t2.forward(6)
-t2.left(90)
-t2.forward(3)
-t2.end_fill()
-
-t2.left(90)
-t2.forward(3)
+draw.origin(t1, 6)
+draw.origin(t2, 6)
 
 # 酔歩
-while flag_t1 or flag_t2:
-    if flag_t1:
+while t1_is_alive or t2_is_alive:
+    if t1_is_alive:
         # 現在地取得
         x1, y1 = t1.pos()
         x1, y1 = round(x1), round(y1)
@@ -79,8 +54,9 @@ while flag_t1 or flag_t2:
             if y1 in log[x1-step]:
                 directions.remove(180)
 
+        # いずれの方向にも移動不可能である場合は移動を終了
         if len(directions) == 0:
-            flag_t1 = False
+            t1_is_alive = False
             continue
 
         # 移動方向を決定
@@ -109,7 +85,7 @@ while flag_t1 or flag_t2:
         elif randdirection == 270:
             log[x1].add(y1-step)
 
-    if flag_t2:
+    if t2_is_alive:
         # 現在地取得
         x2, y2 = t2.pos()
         x2, y2 = round(x2), round(y2)
@@ -131,8 +107,9 @@ while flag_t1 or flag_t2:
             if y2 in log[x2-10]:
                 directions.remove(180)
 
+        # いずれの方向にも移動不可能である場合は移動を終了
         if len(directions) == 0:
-            flag_t2 = False
+            t2_is_alive = False
             continue
 
         # 移動方向を決定

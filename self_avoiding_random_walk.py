@@ -1,34 +1,24 @@
 from turtle import *
 import random
+import draw
 
 step = 10
 
 # 準備
-speed(0)
+t = Turtle()
+
+t.speed(0)
 
 log = {}
 
 # 始点描画
-forward(3)
-left(90)
-
-begin_fill()
-forward(3)
-for _ in range(3):
-    left(90)
-    forward(6)
-left(90)
-forward(3)
-end_fill()
-
-left(90)
-forward(3)
+draw.origin(t, 6)
 
 # 酔歩
 while True:
     # 現在地取得
-    x, y = pos()
-    x, y = round(x), round(y)
+    x, y = t.pos()
+    x, y = round(x), round(y) # 上下左右のいずれかに進むはずだが、なぜか誤差が生まれるので丸めて無視
 
     # 現在地をlogに追加
     if x in log.keys():
@@ -58,13 +48,13 @@ while True:
 
     # 移動方向を取得
     randdirection = random.choice(directions)
-    setheading(randdirection)
+    t.setheading(randdirection)
 
     # 現在地と移動方向を出力
     print((x, y), randdirection)
 
     # 移動
-    forward(step)
+    t.forward(step)
 
 print(log)
 

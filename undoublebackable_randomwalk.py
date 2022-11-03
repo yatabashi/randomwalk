@@ -15,7 +15,7 @@ onscreenclick(clicked)
 
 while flag:
     x, y = pos()
-    x, y = round(x), round(y)
+    x, y = round(x), round(y) # 上下左右のいずれかに進むはずだが、なぜか誤差が生まれるので丸めて無視
 
     directions = [0, 90, 270] # Uターンできなくしてみた
 
