@@ -6,7 +6,7 @@ import random
 
 # 設定
 num_of_turtles = 4 # 亀の頭数。1以上の整数を入力
-init_positions = [(50, 50), (-50, 50), (-50, -50), (50, -50)] # 亀の初期位置。2つの実数からなるタプルnum_of_turtles個の配列を入力。相互回避が成立するためには、任意の2つのタプルの第n要素について、その差がstepの正整数倍である必要がある（n=0,1）。
+init_positions = [(30, 30), (-30, 30), (-30, -30), (30, -30)] # 亀の初期位置。2つの実数からなるタプルnum_of_turtles個の配列を入力。相互回避が成立するためには、任意の2つのタプルの第n要素について、その差がstepの正整数倍である必要がある（n=0,1）。
 step = 10 # 亀の歩幅。0より大きい実数を入力
 
 # 変数定義
@@ -16,7 +16,7 @@ is_alive = []
 # Turtle生成
 for i in range(num_of_turtles):
     command = f"""t{i} = Turtle()
-turtles.append(t{i})"""
+turtles.append(t{i})""" # t{i}への代入は不要？
     exec(command)
 
 # Turtleの設定

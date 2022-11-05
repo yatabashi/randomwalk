@@ -2,7 +2,6 @@ from turtle import *
 import random
 
 # 変数定義
-log = {0: [0]}
 flag = True
 
 # Turtleの設定
