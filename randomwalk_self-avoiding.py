@@ -42,8 +42,8 @@ while True:
         if y in log[x+step]:
             directions.remove(0)
 
-    if x-10 in log.keys():
-        if y in log[x-10]:
+    if x-step in log.keys():
+        if y in log[x-step]:
             directions.remove(180)
 
     if len(directions) == 0:

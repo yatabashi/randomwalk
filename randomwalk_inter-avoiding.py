@@ -109,8 +109,8 @@ while t1_is_alive or t2_is_alive:
             if y2 in log[x2+step]:
                 directions.remove(0)
 
-        if x2-10 in log.keys():
-            if y2 in log[x2-10]:
+        if x2-step in log.keys():
+            if y2 in log[x2-step]:
                 directions.remove(180)
 
         # いずれの方向にも移動不可能である場合は移動を終了
