@@ -14,7 +14,7 @@
 ### randomwalk_self-avoiding.py
 東西南北に進む自己回避ランダムウォーク。
 
-### randomwalk_inter-avoiding.py
+### randomwalk_mutually-avoiding.py
 二頭が自身と相手の軌跡を回避しつつ東西南北に進む自己回避ランダムウォーク。
 
 ### randomwalk_evasive.py
