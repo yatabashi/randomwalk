@@ -23,6 +23,3 @@
 
 ### randomwalk_self-avoiding_endless.py
 東西南北に進む自己回避ランダムウォークで、袋小路からの離脱を行う。
-
-## ToDo
-* _evasiveのTurtle生成時に、生成した変数にTurtleインスタンスを代入する必要性がなければ記述変更

@@ -15,9 +15,7 @@ is_alive = []
 
 # Turtle生成
 for i in range(num_of_turtles):
-    command = f"""t{i} = Turtle()
-turtles.append(t{i})""" # t{i}への代入は不要？
-    exec(command)
+    turtles.append(Turtle())
 
 # Turtleの設定
 for (t, init_pos) in zip(turtles, init_positions):
